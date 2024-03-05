@@ -1,0 +1,12 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>New Post Created: <%= @post.title %></h1>
+    <p>Dear <%= @user.name %>,</p>
+    <p>A new post titled <strong><%= @post.title %><strong> has been created. You can view it <a href="<%= post_url(@post) %>">Here</a>.</p>
+    <p>If you no longer wish to receive notifications for this post, you can <a href="<%= @unsubscribe_url %>">Unsubscribe</a>.</p>
+    <p>Thank you!</p>
+  </body>
+</html>
