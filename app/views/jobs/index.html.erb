@@ -15,6 +15,7 @@
     <%= render job %>
     <p>
       <%= link_to "Show this job", job %>
+      <%= button_to "Destroy this job", job, method: :delete %>
     </p>
   <% end %>
 </div>
