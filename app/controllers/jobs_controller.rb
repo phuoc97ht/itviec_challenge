@@ -27,9 +27,11 @@ class JobsController < ApplicationController
       if @job.save
         format.html { redirect_to job_url(@job), notice: "Job was successfully created." }
         format.json { render :show, status: :created, location: @job }
+        format.turbo_stream { render turbo_stream: turbo_stream.append('jobs', @job) }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @job.errors, status: :unprocessable_entity }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("new_job", partial: "jobs/form", locals: { job: @job }) }
       end
     end
   end
